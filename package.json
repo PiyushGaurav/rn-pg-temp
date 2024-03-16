@@ -1,15 +1,31 @@
 {
   "name": "rn-pg-temp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React Native Custom Template",
   "main": "index.js",
   "files": [
     "template",
     "template.config.js"
   ],
+   "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PiyushGaurav/rn-pg-temp.git"
+  },
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "keywords": [
+    "template",
+    "boilerplate",
+    "starter",
+    "react-native",
+    "react",
+    "native"
+  ],
+  "bugs": {
+    "url": "https://github.com/PiyushGaurav/rn-pg-temp/issues"
+  },
+  "author": "Piyush Gaurav (Deloitte)",
   "license": "ISC"
 }
