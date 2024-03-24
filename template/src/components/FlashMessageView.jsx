@@ -2,11 +2,10 @@ import React from 'react';
 import FlashMessage from 'react-native-flash-message';
 import Colors from '../theme/Colors';
 import {Fonts} from '../theme/Fonts';
-import {useSelector} from 'react-redux';
+import {useColorScheme} from 'react-native';
 
 function FlashMessageView() {
-  const {isDark} = useSelector(state => state.appSetting);
-
+  const isDark = useColorScheme() === 'dark';
   return (
     <FlashMessage
       titleStyle={{

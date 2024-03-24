@@ -1,5 +1,11 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
+import {
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  View,
+  useColorScheme,
+} from 'react-native';
 import Colors from '../theme/Colors';
 import {useSelector} from 'react-redux';
 
@@ -8,7 +14,7 @@ const WrapperContainer = ({
   statusBarColor = Colors.primary,
   barStyle = 'dark-content',
 }) => {
-  const {isDark} = useSelector(state => state.appSetting);
+  const isDark = useColorScheme() === 'dark';
 
   return (
     <View

@@ -1,4 +1,11 @@
-import {StyleSheet, Text, View, Alert, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Alert,
+  TouchableOpacity,
+  useColorScheme,
+} from 'react-native';
 import React, {useState} from 'react';
 import WrapperContainer from '../../components/WrapperContainer';
 import ButtonComp from '../../components/ButtonComp';
@@ -14,7 +21,7 @@ import {useSelector} from 'react-redux';
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {isDark} = useSelector(state => state.appSetting);
+  const isDark = useColorScheme() === 'dark';
 
   const onLogin = () => {
     const user = {

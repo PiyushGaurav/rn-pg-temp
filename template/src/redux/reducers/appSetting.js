@@ -5,7 +5,6 @@ const appSettingSlice = createSlice({
   initialState: {
     isFirstTime: false,
     lang: 'english',
-    isDark: false,
   },
   reducers: {
     changeFirstTime: (state, action) => {
@@ -14,13 +13,9 @@ const appSettingSlice = createSlice({
     changeLang: (state, action) => {
       state.lang = action.payload;
     },
-    changeTheme: (state, action) => {
-      state.isDark = action.payload;
-    },
   },
 });
 
-export const {changeFirstTime, changeLang, changeTheme} =
-  appSettingSlice.actions;
+export const {changeFirstTime, changeLang} = appSettingSlice.actions;
 
 export default appSettingSlice.reducer;

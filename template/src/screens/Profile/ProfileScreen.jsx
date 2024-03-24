@@ -1,4 +1,10 @@
-import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  useColorScheme,
+} from 'react-native';
 import React, {useContext} from 'react';
 import {Fonts} from '../../theme/Fonts';
 import ButtonComp from '../../components/ButtonComp';
@@ -10,7 +16,7 @@ import {useSelector} from 'react-redux';
 import navigationStrings from '../../constants/navigationStrings';
 
 const ProfileScreen = ({navigation}) => {
-  const {isDark} = useSelector(state => state.appSetting);
+  const isDark = useColorScheme() === 'dark';
 
   const onLogout = () => {
     actions.logout();

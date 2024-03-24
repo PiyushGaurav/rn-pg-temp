@@ -1,9 +1,8 @@
 import React from 'react';
-import {Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity, useColorScheme} from 'react-native';
 import CommonStyles, {hitSlopProp} from '../theme/CommonStyles';
 import Colors from '../theme/Colors';
 import {Fonts} from '../theme/Fonts';
-import {useSelector} from 'react-redux';
 
 const ButtonComp = ({
   onPress = () => {},
@@ -11,8 +10,7 @@ const ButtonComp = ({
   btnTextStyle = {},
   btnStyle = {},
 }) => {
-  const {isDark} = useSelector(state => state.appSetting);
-
+  const isDark = useColorScheme() === 'dark';
   return (
     <TouchableOpacity
       style={[

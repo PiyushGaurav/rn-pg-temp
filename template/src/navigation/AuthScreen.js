@@ -14,8 +14,6 @@ import Colors from '../theme/Colors';
 import {useSelector} from 'react-redux';
 
 export default function (Stack, isFirstTime, isDark) {
-  // const {isDark} = useSelector(state => state.appSetting);
-
   const screensOptions = {
     headerBackTitleVisible: false,
     headerStyle: {

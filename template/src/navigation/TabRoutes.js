@@ -3,17 +3,16 @@ import {
   createBottomTabNavigator,
   BottomTabBar,
 } from '@react-navigation/bottom-tabs';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, useColorScheme} from 'react-native';
 import navigationStrings from '../constants/navigationStrings';
 import Colors from '../theme/Colors';
 import {Home, Search, Post, Notification, Profile} from '../screens';
 import {Fonts} from '../theme/Fonts';
-import {useSelector} from 'react-redux';
 
 const BottomTab = createBottomTabNavigator();
 
 const TabRoutes = props => {
-  const {isDark} = useSelector(state => state.appSetting);
+  const isDark = useColorScheme() === 'dark';
 
   return (
     <BottomTab.Navigator

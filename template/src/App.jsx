@@ -12,17 +12,12 @@ import {useColorScheme} from 'react-native';
 const {dispatch} = store;
 
 const App = () => {
-  const colorScheme = useColorScheme();
-
   const init = async () => {
     try {
       const isFirstTime = await getFirstTime();
       const userData = await getUserData();
       if (!!isFirstTime) {
         actions.updateFirstTime(true);
-      }
-      if (colorScheme === 'dark') {
-        actions.updateTheme(true);
       }
       if (userData && !!userData) {
         dispatch(saveUserData(userData));

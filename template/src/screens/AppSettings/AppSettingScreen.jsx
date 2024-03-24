@@ -1,29 +1,47 @@
 /* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, useColorScheme} from 'react-native';
 import React from 'react';
 import strings from '../../constants/lang';
 import actions from '../../redux/actions';
 import {useSelector} from 'react-redux';
 import Colors from '../../theme/Colors';
 import {Fonts} from '../../theme/Fonts';
+import Separator from '../../components/Separator';
 
 export default function AppSettingScreen() {
-  const {isDark, lang} = useSelector(state => state.appSetting);
-
+  const {lang} = useSelector(state => state.appSetting);
+  const isDark = useColorScheme() === 'dark';
   return (
-    <View style={styles.modalContainer}>
-      <Text style={styles.settingTitle}>{strings.appSettings}</Text>
-      <Text style={styles.settingName}>{strings.chooseLang}</Text>
+    <View
+      style={[
+        styles.modalContainer,
+        {backgroundColor: isDark ? Colors.pallete8 : Colors.pallete4},
+      ]}>
+      <Text
+        style={[
+          styles.settingTitle,
+          {color: isDark ? Colors.secandory : Colors.primary},
+        ]}>
+        {strings.appSettings}
+      </Text>
+      <Separator />
+      <Text
+        style={[
+          styles.settingName,
+          {color: isDark ? Colors.white : Colors.black},
+        ]}>
+        {strings.chooseLang}
+      </Text>
       <Text
         style={[
           styles.settingOption,
           lang === 'english'
             ? {
-                color: Colors.primary,
+                color: isDark ? Colors.secandory : Colors.primary,
                 textDecorationLine: 'underline',
               }
             : {
-                color: Colors.black,
+                color: isDark ? Colors.white : Colors.black,
               },
         ]}
         onPress={() => {
@@ -36,53 +54,17 @@ export default function AppSettingScreen() {
           styles.settingOption,
           lang === 'hindi'
             ? {
-                color: Colors.primary,
+                color: isDark ? Colors.secandory : Colors.primary,
                 textDecorationLine: 'underline',
               }
             : {
-                color: Colors.black,
+                color: isDark ? Colors.white : Colors.black,
               },
         ]}
         onPress={() => {
           actions.updateLang('hindi');
         }}>
         {strings.hindi}
-      </Text>
-      <Text style={styles.settingName}>{strings.chooseTheme}</Text>
-      <Text
-        style={[
-          styles.settingOption,
-          isDark
-            ? {
-                color: Colors.primary,
-                textDecorationLine: 'underline',
-              }
-            : {
-                color: Colors.secondary,
-              },
-        ]}
-        onPress={() => {
-          actions.updateTheme(true);
-        }}>
-        {strings.dark}
-      </Text>
-      <Text
-        style={[
-          styles.settingOption,
-          !isDark
-            ? {
-                color: Colors.primary,
-                textDecorationLine: 'underline',
-              }
-            : {
-                color: Colors.black,
-              },
-          ,
-        ]}
-        onPress={() => {
-          actions.updateTheme(false);
-        }}>
-        {strings.light}
       </Text>
     </View>
   );
@@ -95,13 +77,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    height: '100%',
   },
   settingTitle: {
-    ...Fonts.bold(30),
+    ...Fonts.regular(50),
     color: Colors.primary,
   },
   settingName: {
-    ...Fonts.medium(20),
+    ...Fonts.medium(18),
     color: Colors.black,
     marginVertical: 10,
   },

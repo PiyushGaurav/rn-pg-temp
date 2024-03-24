@@ -1,4 +1,4 @@
-import {Text, StyleSheet, View} from 'react-native';
+import {Text, StyleSheet, View, useColorScheme} from 'react-native';
 import React from 'react';
 import {Fonts} from '../../theme/Fonts';
 import ButtonComp from '../../components/ButtonComp';
@@ -11,7 +11,7 @@ import strings from '../../constants/lang';
 import {useSelector} from 'react-redux';
 
 const OnBoardingScreen = ({navigation}) => {
-  const {isDark} = useSelector(state => state.appSetting);
+  const isDark = useColorScheme() === 'dark';
 
   return (
     <WrapperContainer>

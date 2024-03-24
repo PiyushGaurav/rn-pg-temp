@@ -12,6 +12,3 @@ export const updateLang = data => {
   strings.setLanguage(data);
   dispatch(changeLang(data));
 };
-export const updateTheme = data => {
-  dispatch(changeTheme(data));
-};

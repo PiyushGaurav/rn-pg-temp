@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, useColorScheme} from 'react-native';
 import React from 'react';
 import WrapperContainer from '../../components/WrapperContainer';
 import {Fonts} from '../../theme/Fonts';
@@ -7,7 +7,7 @@ import strings from '../../constants/lang';
 import {useSelector} from 'react-redux';
 
 const SearchScreen = () => {
-  const {isDark} = useSelector(state => state.appSetting);
+  const isDark = useColorScheme() === 'dark';
 
   return (
     <WrapperContainer>

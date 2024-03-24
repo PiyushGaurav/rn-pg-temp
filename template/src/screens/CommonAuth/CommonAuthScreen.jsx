@@ -1,6 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-sparse-arrays */
-import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  useColorScheme,
+} from 'react-native';
 import React from 'react';
 import CommonStyles from '../../theme/CommonStyles';
 import {Fonts} from '../../theme/Fonts';
@@ -12,8 +18,8 @@ import strings from '../../constants/lang';
 import {useSelector} from 'react-redux';
 
 const CommonAuthScreen = ({navigation}) => {
-  const {isDark, lang} = useSelector(state => state.appSetting);
-
+  const {lang} = useSelector(state => state.appSetting);
+  const isDark = useColorScheme() === 'dark';
   const goToScreen = screen => {
     navigation.navigate(screen);
   };

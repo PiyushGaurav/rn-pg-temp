@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, useColorScheme} from 'react-native';
 import React, {useEffect} from 'react';
 import WrapperContainer from '../../components/WrapperContainer';
 import {useSelector} from 'react-redux';
@@ -10,7 +10,7 @@ import {showMessage, hideMessage} from 'react-native-flash-message';
 const HomeScreen = () => {
   const state = useSelector(state => state.auth);
   const {email} = state.userData;
-  const {isDark} = useSelector(state => state.appSetting);
+  const isDark = useColorScheme() === 'dark';
 
   useEffect(() => {
     showMessage({
