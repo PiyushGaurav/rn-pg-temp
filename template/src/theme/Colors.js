@@ -1,0 +1,16 @@
+export default {
+  white: '#FFFFFF',
+  black: '#000000',
+  primary: '#7400b8',
+  secandory: '#80ffdb',
+  pallete1: '#80ffdb',
+  pallete2: '#72efdd',
+  pallete3: '#64dfdf',
+  pallete4: '#56cfe1',
+  pallete5: '#48bfe3',
+  pallete6: '#4ea8de',
+  pallete7: '#5390d9',
+  pallete8: '#5e60ce',
+  pallete9: '#6930c3',
+  pallete10: '#7400b8',
+};
