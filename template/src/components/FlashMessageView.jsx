@@ -11,11 +11,13 @@ function FlashMessageView() {
       titleStyle={{
         marginRight: 5,
         ...Fonts.medium(16),
-        color: isDark ? Colors.primary : Colors.secandory,
+        // color: isDark ? Colors.primary : Colors.secandory,
       }}
-      style={{
-        backgroundColor: isDark ? Colors.secandory : Colors.primary,
-      }}
+      style={
+        {
+          // backgroundColor: isDark ? Colors.secandory : Colors.primary,
+        }
+      }
       position="top"
     />
   );

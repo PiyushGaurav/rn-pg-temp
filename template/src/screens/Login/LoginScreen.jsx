@@ -17,6 +17,7 @@ import navigationStrings from '../../constants/navigationStrings';
 import {setUserData} from '../../utils/utils';
 import strings from '../../constants/lang';
 import {useSelector} from 'react-redux';
+import {showMessage} from 'react-native-flash-message';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -28,6 +29,14 @@ const LoginScreen = ({navigation}) => {
       email,
       password,
     };
+    if (email === '' || password === '') {
+      showMessage({
+        message: 'Email/Password cannot be empty!',
+        type: 'danger',
+      });
+
+      return;
+    }
     setUserData(user);
     actions.login(user);
   };
